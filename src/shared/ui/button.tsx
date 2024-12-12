@@ -1,12 +1,18 @@
-import {WhiteLogo} from "@/shared/ui/icons";
+interface Props{
+    color: string;
+    borderColor: string;
+    titleColor: string;
+    textColor: string;
+    logo: React.ReactNode;
+}
 
-export function Button(){
+export const Button:React.FC<Props> = ({color, borderColor, titleColor, textColor, logo}) => {
     return (
-        <div className="flex items-center gap-[6px] px-[26px] py-[9px] bg-[#57BFC1] rounded-[15px]">
-            <WhiteLogo className="w-[30px] h-[20px]"/>
-            <div className="flex flex-col font-semibold">
+        <div className={`flex items-center gap-[11px] px-[26px] py-[9px] ${color} ${borderColor} rounded-[15px]`}>
+            {logo}
+            <div className={`flex ${titleColor} flex-col font-semibold`}>
                 <h4>Наш телеграм канал</h4>
-                <p className="font-normal">Telegram web app</p>
+                <p className={`${textColor} font-normal`}>Telegram web app</p>
             </div>
         </div>
     )
